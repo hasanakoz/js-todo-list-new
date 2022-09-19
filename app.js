@@ -24,6 +24,8 @@ const createListElement = (newToDo) => {
   const li = document.createElement("li");
   li.setAttribute("id", newToDo.id);
 
+  newToDo.completed && li.classList.add("completed");
+
   const okIcon = document.createElement("i");
   okIcon.setAttribute("class", "fas fa-check");
   li.appendChild(okIcon);
@@ -38,6 +40,15 @@ const createListElement = (newToDo) => {
   li.appendChild(deleteIcon);
   todoUl.appendChild(li);
 };
+
+todoUl.addEventListener("click", (e) => {
+  if (e.target.classList.contains("fa-trash")) {
+    e.target.parentElement.remove();
+  }
+
+  if (e.target.classList.contains("fa-check")) {
+  }
+});
 
 todoInput.addEventListener("keydown", (e) => {
   if (e.code === "Enter") {
