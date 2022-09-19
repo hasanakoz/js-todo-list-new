@@ -16,6 +16,7 @@ addBtn.addEventListener("click", () => {
       text: todoInput.value,
     };
     createListElement(newToDo);
+    todoInput.value = "";
   }
 });
 
@@ -36,4 +37,14 @@ const createListElement = (newToDo) => {
   deleteIcon.setAttribute("class", "fas fa-trash");
   li.appendChild(deleteIcon);
   todoUl.appendChild(li);
+};
+
+todoInput.addEventListener("keydown", (e) => {
+  if (e.code === "Enter") {
+    addBtn.click();
+  }
+});
+
+window.onload = function () {
+  todoInput.focus();
 };
