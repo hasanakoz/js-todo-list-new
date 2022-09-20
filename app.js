@@ -62,6 +62,15 @@ todoUl.addEventListener("click", (e) => {
 
   if (e.target.classList.contains("fa-check")) {
     e.target.parentElement.classList.toggle("completed");
+    todos.map((obj) => {
+      if (obj.id == id) {
+        obj.completed == true
+          ? (obj.completed = false)
+          : (obj.completed = true);
+      }
+      localStorage.setItem("TODOS", JSON.stringify(todos));
+    });
+    console.log(todos);
   }
 });
 
